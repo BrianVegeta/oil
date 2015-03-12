@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin:
+    nav:
+      header:
+        name: "Manager panel"
+      link_list:
+        manage_product: 'Product management'
+        manage_manager: 'Manager management'
+        manage_customer_service: 'Customer service management'
+      user:
+        logout: 'logout'
