@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  product:
+    applicable_type: 'Applicable Types'
   nav:
     header:
       name: 'SHUNG CHIN'

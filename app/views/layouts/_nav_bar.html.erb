@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= t('nav.header.name') %></a>
+      <a class="navbar-brand" href="<%= root_path %>"><%= t('nav.header.name') %></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="<%= admin_products_path %>">
+          <a href="<%= products_path %>">
             <%= t('nav.link_list.product') %>
           </a>
         </li>

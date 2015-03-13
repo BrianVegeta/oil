@@ -1,4 +1,6 @@
 zh-TW:
+  product:
+    applicable_type: '符合規格'
   nav:
     header:
       name: '勝群'

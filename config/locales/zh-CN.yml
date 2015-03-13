@@ -1,4 +1,6 @@
 zh-CN:
+  product:
+    applicable_type: '符合规格'
   nav:
     header:
       name: '胜群'

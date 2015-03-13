@@ -27,7 +27,7 @@ image_data = @current_photo_url if @current_photo_url
   <% end %>
   <%= f.hidden_field :photo_id %>
   <div class="form-group">
-    <label class="control-label">適用規格</label>
+    <label class="control-label">適用規格 (EX: JASO, HYUNDAI, JAGUAR 使用逗號區隔)</label>
     <%= f.text_area :applicable_types_string, class: 'form-control', rows: 3 %>
   </div>
 
