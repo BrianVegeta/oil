@@ -42,3 +42,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'ckeditor_rails'
+gem 'paperclip'
+gem 'jquery-fileupload-rails'

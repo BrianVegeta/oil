@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312140107) do
+ActiveRecord::Schema.define(version: 20150312220314) do
+
+  create_table "photos", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "zh_TW_title",       null: false
+    t.string   "zh_TW_content",     null: false
+    t.text     "zh_TW_description"
+    t.string   "zh_CN_title",       null: false
+    t.string   "zh_CN_content",     null: false
+    t.text     "zh_CN_description"
+    t.string   "en_title",          null: false
+    t.string   "en_content",        null: false
+    t.text     "en_description"
+    t.text     "applicable_types"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "photo_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",                                    null: false
@@ -26,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150312140107) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "is_admin",                                    null: false
+    t.boolean  "is_super_admin",              default: false
     t.boolean  "is_admin_manager",            default: false
     t.boolean  "is_customer_service_manager", default: false
     t.boolean  "is_product_manager",          default: false

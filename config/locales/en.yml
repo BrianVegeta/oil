@@ -30,3 +30,34 @@ en:
         manage_customer_service: 'Customer service management'
       user:
         logout: 'logout'
+    session:
+      input_email: 'Enter email'
+      input_password: 'Enter password'
+      login_btn: 'Sign in'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username: 
+              blank: '必填。'
+            email:
+              taken: '已經有人使用。'
+              blank: '必填。'
+            password:
+              blank: '必填。'
+            password_confirmation:
+              confirmation: '不一致。'
+            confirmation_token:
+              invalid: '錯誤。'
+            reset_password_token:
+              invalid: '已過期。'
+    attributes:
+      user:
+        username: '名稱'
+        email: "電子信箱"
+        password: '密碼'
+        password_confirmation: '密碼確認'
+        login_or_email: '帳號、電子信箱'
+        confirmation_token: '驗證碼'
+        reset_password_token: '變更密碼要求'

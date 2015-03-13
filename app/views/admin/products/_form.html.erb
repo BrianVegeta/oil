@@ -1,0 +1,131 @@
+<% 
+image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MyAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjU1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5M3gyMDA8L3RleHQ+PC9nPjwvc3ZnPg=="
+
+image_data = @current_photo_url if @current_photo_url
+%>
+<div class="form-group">
+  <label class="control-label">上傳圖片</label>
+  <div class="row">
+    <div class="col-sm-5">
+      <a href="#" class="thumbnail">
+        <%= form_for [:admin, @photo], remote: true, authenticity_token: true, :html => { :multipart => true, id: 'photo_form' } do |f| %>
+          <%= f.file_field :avatar, id: :fileupload %>
+        <% end %>
+        <img class="loading-gif" src="http://sierrafire.cr.usgs.gov/images/loading.gif" style="display: none;">
+        <img class="cover-display" data-src="holder.js/100%x200" alt="100%x200" src="<%= image_data %>" data-holder-rendered="true">
+      </a>
+    </div>
+  </div>
+</div>
+<%= form_for([:admin, @admin_product], :html => { class: 'form', :role => "form", autocomplete: 'off'}) do |f| %>
+  <% if @admin_product.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <% @admin_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.hidden_field :photo_id %>
+  <div class="form-group">
+    <label class="control-label">適用規格</label>
+    <%= f.text_area :applicable_types_string, class: 'form-control', rows: 3 %>
+  </div>
+
+  <div class="right-tabs" role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">繁體</a></li>
+      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">简体</a></li>
+      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">English</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <br>
+        <%= render 'zh_TW_input', {f: f} %>      
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <br>
+        <%= render 'zh_CN_input', {f: f} %>      
+      </div>
+      <div role="tabpanel" class="tab-pane" id="messages">
+        <br>
+        <%= render 'en_input', {f: f} %>      
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <%= f.submit '送出', class: 'btn btn-primary col-sm-2' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('.ckeditor').ckeditor({
+    height: 280,
+    toolbar: [
+      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+      { name: 'insert', items: [ 'Table'] },
+      { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+      { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+      { name: 'tools', items: [ 'Maximize'] },
+      { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] }
+    ]
+  });
+
+  $('.thumbnail').fileupload({
+    dataType: 'json',
+    add: function (e, data) {
+      $('.loading-gif').show();
+      data.submit();
+    },
+    done: function (e, data) {
+      $('.thumbnail').find('.cover-display').attr('src', data.result.medium)
+      $('.loading-gif').hide();
+      $('#product_photo_id').val(data.result.id);
+    }
+  });
+
+</script>
+
+<style type="text/css">
+.thumbnail {
+  position: relative;
+}
+.loading-gif {
+  position: absolute;
+  top: -10px;
+}
+.thumbnail > .cover-display {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+#fileupload {
+  height: 230px;
+  width: 230px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+textarea { resize: vertical; }
+.right-tabs .nav {
+    float: right;
+    border-bottom: 0px;
+}
+.right-tabs .nav li { float: left }
+.right-tabs .tab-content {
+    float: left;
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+}
+</style>

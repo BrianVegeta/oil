@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3" id="login_panel">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% if flash[:alert] -%>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end -%>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, class: 'form-control input-lg', placeholder: t('admin.session.input_email') %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg', placeholder: t('admin.session.input_password') %>
+      </div>
+      <%= f.submit t('admin.session.login_btn'), class: 'btn btn-lg btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
+<style type="text/css">
+form {
+  top: 50%;
+  position: relative;
+  margin-top: -84px;
+}
+</style>
+<script type="text/javascript">
+  var height = $(window).height();
+  $('#login_panel').height(height);
+
+  $(window).resize(function() {
+    var height = $(window).height();
+    $('#login_panel').height(height);
+  });
+</script>

@@ -11,6 +11,7 @@ u = User.new(
     password: "password",
     password_confirmation: "password",
     is_admin: true,
+    is_super_admin: true,
     is_admin_manager: true,
     is_customer_service_manager: true,
     is_product_manager: true

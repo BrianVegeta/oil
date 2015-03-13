@@ -2,4 +2,53 @@ zh-TW:
   admin:
     nav:
       header:
-        name: "Manager panel"
+        name: "勝群管理後台"
+      link_list:
+        manage_product: '管理產品'
+        manage_manager: '管理員管理'
+        manage_customer_service: '客服管理'
+      user:
+        logout: '登出'
+    session:
+      input_email: '電子信箱'
+      input_password: '密碼'
+      login_btn: '登入'
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            zh_TW_title:
+              blank: '必填。'
+            zh_TW_content:
+              blank: '必填。'
+            applicable_types_string:
+              blank: '必填。'
+        user:
+          attributes:
+            username: 
+              blank: '必填。'
+            email:
+              taken: '已經有人使用。'
+              blank: '必填。'
+            password:
+              blank: '必填。'
+            password_confirmation:
+              confirmation: '不一致。'
+            confirmation_token:
+              invalid: '錯誤。'
+            reset_password_token:
+              invalid: '已過期。'
+    attributes:
+      product:
+        zh_TW_title: '產品名（繁體）'
+        zh_TW_content: '內容物（繁體）'
+        applicable_types_string: '適用規格'
+      user:
+        username: '名稱'
+        email: "電子信箱"
+        password: '密碼'
+        password_confirmation: '密碼確認'
+        login_or_email: '帳號、電子信箱'
+        confirmation_token: '驗證碼'
+        reset_password_token: '變更密碼要求'
