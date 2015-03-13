@@ -20,6 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  nav:
+    header:
+      name: 'SHUNG CHIN'
+    link_list:
+      language:
+        change: 'Language'
+        cht: '繁體'
+        chs: '简体'
+        en: 'English'
+      product: 'Product'
   admin:
     nav:
       header:

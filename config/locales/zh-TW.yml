@@ -1,4 +1,14 @@
 zh-TW:
+  nav:
+    header:
+      name: '勝群'
+    link_list:
+      language:
+        change: '語言'
+        cht: '繁體'
+        chs: '简体'
+        en: 'English'
+      product: '產品'
   admin:
     nav:
       header:
