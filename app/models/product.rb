@@ -42,6 +42,7 @@ class Product  < ActiveRecord::Base
 
   private
   def locale_prefix(column_name)
-    I18n.locale.to_s.downcase.gsub('-', '_') + '_' + column_name
+    # I18n.locale.to_s.downcase.gsub('-', '_') + '_' + column_name
+    I18n.locale.to_s.gsub('-', '_') + '_' + column_name
   end
 end

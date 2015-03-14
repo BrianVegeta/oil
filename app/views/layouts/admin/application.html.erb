@@ -2,10 +2,9 @@
 <html>
 <head>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+l  <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="admin">
 <%= render 'layouts/admin/nav_bar' %>
 <div class="container" style="margin-top: 60px;">
   <% if flash[:notice] %>
