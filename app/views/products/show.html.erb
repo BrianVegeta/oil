@@ -1,28 +1,31 @@
 <% 
   default_image = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MyAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjU1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5M3gyMDA8L3RleHQ+PC9nPjwvc3ZnPg==' 
 %>
-<div class="row">
+<div id="product" class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <div class="thumbnail">
-      <img data-src="holder.js/100%x200" alt="100%x200" style="height: 200px; width: 100%; display: block;" src="<%= (@product.photo.nil?) ? default_image : @product.photo.avatar.url(:medium) %>" data-holder-rendered="true">
-      <div class="caption">
-        <h4>
-          <%= @product.trans_title %><br>
-          <small><%= @product.trans_content %></small>
-        </h4>
-        <div class="area-description"><%=raw @product.trans_description %></div>
-        <div class="area-applicable-type">
-          <h5><%= t('product.applicable_type') %></h5>
-          <% @product.applicable_types.each do |type| %>
-            <span>
-              <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-              <%= type %>
-            </span>
-          <% end %>
+    <div class="row thumbnail">
+      <div class="col-xs-12 col-sm-6">
+        <img data-src="holder.js/100%x100%" alt="100%x200" style="height: 100%; width: 100%; display: block;" src="<%= (@product.photo.nil?) ? default_image : @product.photo.avatar.url(:medium) %>" data-holder-rendered="true">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="caption">
+          <h4>
+            <%= @product.trans_title %><br>
+            <small><%= @product.trans_content %></small>
+          </h4>
+          <div class="area-description"><%=raw @product.trans_description %></div>
+          <div class="area-applicable-type">
+            <h5><%= t('product.applicable_type') %></h5>
+            <% @product.applicable_types.each do |type| %>
+              <span>
+                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                <%= type %>
+              </span>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
