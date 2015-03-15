@@ -1,0 +1,31 @@
+body
+  background: image-url('background.png') no-repeat fixed
+  background-position: right top
+  background-color: black
+  nav.navbar-default
+    background-color: rgba(0, 0, 0, 0.4)
+    border: 0
+    .container
+      padding-top: 7px
+      padding-bottom: 7px
+      
+      .navbar-brand, .navbar-nav li a
+        color: white
+      .dropdown-menu li a
+        color: #333333
+    .divider
+      height: 2px
+      margin-top: 0px
+      background-image: -webkit-linear-gradient(left, #d8225e, #b73794 25%, #7254b6 50%, #3981d1 74%, #3bbfee)
+      background-image: linear-gradient(to right, #d8225e, #b73794 25%, #7254b6 50%, #3981d1 74%, #3bbfee)
+      box-shadow: none
+    .navbar-brand
+      padding: 0
+      img
+        background-color: white
+        padding: 5px
+body#admin
+  background: none
+  background-color: none
+  nav.navbar-default
+    background-color: #f8f8f8
