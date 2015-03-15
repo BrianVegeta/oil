@@ -9,7 +9,8 @@
 </head>
 <body>
 <%= render 'layouts/nav_bar' %>
-<div class="container" style="margin-top: 74px;">
+
+<div class="container" style="margin-top: 120px;">
   <% if flash[:notice] %>
     <div class="alert alert-info" role="alert">
       <%= flash[:notice] %>
@@ -17,6 +18,8 @@
   <% end %>  
   <%= yield %>
 </div>
+
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
