@@ -1,3 +1,14 @@
+body, html
+  height: 100%
+  .wrap
+    min-height: 100%
+    height: auto !important
+    margin: 0 auto -160px
+    .push
+      height: 160px
+    & > .container
+      padding-top: 120px
+
 body#front
   background: image-url('background.png') no-repeat fixed
   background-position: right top
@@ -42,8 +53,10 @@ body#front
             padding-top: 10px
             padding-bottom: 5px            
   .footer
-    color: white
     margin-top: 60px
+    height: 100px
+    clear: both
+    color: white
     background-color: rgba(210, 195, 195, 0.4)
     border: 0
     .container

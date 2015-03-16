@@ -8,18 +8,18 @@
   <%= favicon_link_tag 'sc-icon.png' %>
 </head>
 <body id="front">
-<%= render 'layouts/nav_bar' %>
-
-<div class="container" style="margin-top: 120px;">
-  <% if flash[:notice] %>
-    <div class="alert alert-info" role="alert">
-      <%= flash[:notice] %>
+  <div class="wrap">
+    <%= render 'layouts/nav_bar' %>
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-info" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>  
+      <%= yield %>
     </div>
-  <% end %>  
-  <%= yield %>
-</div>
-
-<%= render 'layouts/footer' %>
-
+    <div class="push"></div>
+  </div>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
