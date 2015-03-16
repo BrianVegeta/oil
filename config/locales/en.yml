@@ -58,6 +58,7 @@ en:
               blank: '必填。'
             password:
               blank: '必填。'
+              too_short: '太短（需要%{count}個字元以上長度）。'
             password_confirmation:
               confirmation: '不一致。'
             confirmation_token:

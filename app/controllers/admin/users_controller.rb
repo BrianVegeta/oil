@@ -30,7 +30,7 @@ class Admin::UsersController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_user.save
-        format.html { redirect_to edit_admin_user_path(@admin_user), notice: 'User was successfully created.' }
+        format.html { redirect_to edit_admin_user_path(@admin_user), notice: '管理員新增成功。' }
         format.json { render :show, status: :created, location: @admin_user }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class Admin::UsersController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_user.update(params_to_update)
-        format.html { redirect_to edit_admin_user_path(@admin_user), notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_admin_user_path(@admin_user), notice: '管理員更新成功。' }
         format.json { render :show, status: :ok, location: @admin_user }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class Admin::UsersController < Admin::ApplicationController
   def destroy
     @admin_user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_users_url, notice: '管理員已刪除。' }
       format.json { head :no_content }
     end
   end

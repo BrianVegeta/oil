@@ -1,5 +1,16 @@
 class IndexController < ApplicationController
   def index
-  	
+    top_count = 6
+    @products = Product.order('-top_rate desc').order('id desc').limit(top_count)
+    @fixed_products = @products
+
+    if @products.size < top_count
+      (1..(top_count - @products.size)).each do |p|
+        @fixed_products.push @products.last
+      end  
+    end
+
+    @products = @fixed_products
+
   end
 end

@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::ApplicationController
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @admin_products = Product.all
+    @admin_products = Product.order('-top_rate desc').order('id desc')
   end
 
   # GET /admin/products/1
@@ -78,6 +78,7 @@ class Admin::ProductsController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_product_params
       params.require(:product).permit(
+        :top_rate,
         :zh_TW_title, 
         :zh_TW_content, 
         :zh_TW_description, 

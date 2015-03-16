@@ -21,6 +21,7 @@ image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i
 <table class="table">
   <thead>
     <tr>
+      <th>置頂</th>
       <th>ID</th>
       <th>圖片</th>
       <th>產品名</th>
@@ -32,7 +33,8 @@ image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i
 
   <tbody>
     <% @admin_products.each do |admin_product| %>
-      <tr>
+      <tr style="<%= (admin_product.top_rate.present?) ? 'background-color: #DAEFCC;' : '' %>">
+        <td><%= admin_product.top_rate %></td>
         <td><%= admin_product.id %></td>
         <td>
           <% if admin_product.photo %>

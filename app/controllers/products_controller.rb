@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.order('-top_rate desc').order('id desc')
   end
 
   # GET /products/1
@@ -17,9 +17,5 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params[:product]
-    end
+    
 end

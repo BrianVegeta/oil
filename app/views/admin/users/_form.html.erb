@@ -67,8 +67,8 @@
   
 <% end %>
 <script type="text/javascript">
-  var $is_super_admin = $('input[name="user[is_super_admin]"]');
-  var $others = $('input[name!="user[is_super_admin]"]');
+  var $is_super_admin = $('input:checkbox[name="user[is_super_admin]"]');
+  var $others = $('input:checkbox[name!="user[is_super_admin]"]');
 
   $is_super_admin.click(function() {
     if ($(this).prop('checked')) {

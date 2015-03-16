@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   layout 'admin/devise'
+  before_filter :set_locale
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -29,5 +30,9 @@ class Users::SessionsController < Devise::SessionsController
   end
   def after_sign_in_path_for(resource)
     admin_root_path
+  end
+
+  def set_locale
+    I18n.locale = 'zh-TW'
   end
 end

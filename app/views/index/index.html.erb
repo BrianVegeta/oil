@@ -1,35 +1,19 @@
 <div id="home" class="row">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <div class="row">
-      <div class="col-xs-12 col-sm-8">
+      <div class="col-xs-12 col-sm-5">
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <a href="#" class="rollover redroll">
-              <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
+          <div class="col-xs-12 col-sm-12">
+            <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[0].cover_src(:medium)) %>')">
+              <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
               </div>
             </a>
           </div>
-          <div class="col-xs-12 col-sm-6">
-            <a href="#" class="rollover pinkroll">
-              <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
-              <div>
-                Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
-              </div>
-            </a>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <a href="#" class="rollover orangeroll">
-              <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
-              <div>
-                Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
-              </div>
-            </a>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <a href="#" class="rollover blueroll">
-              <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
+          <div class="col-xs-12 col-sm-12">
+            <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[1].cover_src(:medium)) %>')">
+              <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
               </div>
@@ -37,29 +21,42 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <a href="#" class="rollover redroll">
-          <img src="http://www.strohlsf.com/content/images/home/americangiant_strohl_home.jpg" class="img-responsive">
+      <div class="col-xs-12 col-sm-7">
+        <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[2].cover_src(:medium)) %>'); background-size: auto 100%">
+          <img src="<%= asset_path("blank_h.png") %>" class="img-responsive">
           <div>
             Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
           </div>
         </a>
       </div>
+
       <div class="col-xs-12 col-sm-8">
-        <a href="#" class="rollover redroll">
-          <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
+        <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[3].cover_src(:medium)) %>')">
+          <img src="<%= asset_path("blank.png") %>" class="img-responsive">
           <div>
             Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
           </div>
         </a>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <a href="#" class="rollover redroll">
-          <img src="http://www.strohlsf.com/content/images/home/woodfourbrewing_strohl_home.jpg" class="img-responsive">
-          <div>
-            Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+            <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[4].cover_src(:medium)) %>')">
+              <img src="<%= asset_path("blank.png") %>" class="img-responsive">
+              <div>
+                Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
+              </div>
+            </a>
           </div>
-        </a>
+          <div class="col-xs-12 col-sm-12" style="margin-top: 10px;">
+            <a href="#" class="rollover redroll" style="background-image: url('<%= asset_path(@products[5].cover_src(:medium)) %>')">
+              <img src="<%= asset_path("blank.png") %>" class="img-responsive">
+              <div>
+                Located in scenic Sonoma County, a location known for fresh ingredients and fine wine, this brewery is not your average pub.
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
