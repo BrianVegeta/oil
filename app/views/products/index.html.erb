@@ -1,20 +1,17 @@
-<% 
-  default_image = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MyAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjU1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5M3gyMDA8L3RleHQ+PC9nPjwvc3ZnPg==' 
-%>
-
+<% count_in_row = 4 %>
 <div id="products" class="row">
   <% @products.each_with_index do |product, index| %>
-    <% if (index.modulo 3) == 0%>
+    <% if (index.modulo count_in_row) == 0%>
       <div class="col-xs-12 col-sm-12">
         <div class="row">
     <% end %>
-          <div class="col-xs-6 col-sm-4">
+          <div class="col-xs-6 col-sm-3">
             <a href="<%= product_path(product.id) %>" class="thumbnail">
               <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <img data-src="holder.js/100%x100%" alt="160X160" style="height 100%; width: 100%; display: block;" src="<%= (product.photo.nil?) ? default_image : product.photo.avatar.url(:medium) %>" data-holder-rendered="true">
+                <div class="col-xs-12 col-sm-12">
+                  <img data-src="holder.js/100%x100%" alt="160X160" style="height 100%; width: 100%; display: block;" src="<%= product.cover_src(:medium) %>" data-holder-rendered="true">
                 </div>
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-sm-12">
                   <div class="caption">
                   <h4>
                     <%= product.trans_title %><br>
@@ -25,15 +22,9 @@
               </div>
             </a>
           </div>
-    <% if (index.modulo 3) == 2 || product == @products.last %>
+    <% if (index.modulo count_in_row) == (count_in_row - 1) || product == @products.last %>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
-
-<style type="text/css">
-a.thumbnail {
-  text-decoration: none;
-}
-</style>

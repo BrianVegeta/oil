@@ -6,7 +6,7 @@ class IndexController < ApplicationController
 
     if @products.size < top_count
       (1..(top_count - @products.size)).each do |p|
-        @fixed_products.push @products.last
+        @fixed_products.push Product.new
       end  
     end
 
