@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
   def index
     top_count = 6
-    @products = Product.order('-top_rate desc').order('id desc').limit(top_count)
+    @products = Product.where(state: :public).order('-top_rate desc').order('id desc').limit(top_count)
     @fixed_products = @products
 
     if @products.size < top_count

@@ -27,6 +27,7 @@ image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i
       <th>產品名</th>
       <th>新增於</th>
       <th>更新於</th>
+      <th>狀態</th>
       <th></th>
     </tr>
   </thead>
@@ -50,6 +51,13 @@ image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i
         <td><%= admin_product.zh_TW_title %></td>
         <td><%= admin_product.created_at.strftime("%Y/%m/%d %H:%M") %></td>
         <td><%= admin_product.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td>
+          <% if admin_product.state.nil? %>
+            <%= '下架' %>
+          <% else %>
+            <%= admin_product.human_state_name %>
+          <% end %>
+        </td>
         <td>
           <%= link_to '編輯', edit_admin_product_path(admin_product) %>
           <%= link_to '刪除', admin_product_path(admin_product), method: :delete, data: { confirm: '確定刪除?' } %>

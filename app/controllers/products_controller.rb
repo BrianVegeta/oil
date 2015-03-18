@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order('-top_rate desc').order('id desc')
+    @products = Product.where(state: :public).order('-top_rate desc').order('id desc')
   end
 
   # GET /products/1

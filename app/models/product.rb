@@ -3,6 +3,22 @@ class Product  < ActiveRecord::Base
 
   belongs_to :photo
 
+  state_machine :state, initial: :draft do 
+    state :draft
+    state :public
+
+    event :open do
+      transition :draft => :public
+    end
+
+    event :close do
+      transition :public => :draft
+    end
+  end
+
+  # callbakcs
+  
+  # validates
   validates :top_rate,                    numericality: { greater_than_or_equal_to: 1 }, unless: :not_top_rate?
   validates :zh_TW_title,                 presence: true
   validates :zh_TW_content,               presence: true

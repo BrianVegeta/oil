@@ -27,6 +27,10 @@ zh-TW:
       input_password: '密碼'
       login_btn: '登入'
   activerecord:
+    state_machines:
+      states:
+        draft: "下架"
+        public: "上架"
     errors:
       models:
         product:

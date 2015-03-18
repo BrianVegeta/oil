@@ -23,6 +23,8 @@ class Admin::ProductsController < Admin::ApplicationController
   def edit
     @photo = Photo.new
 
+    @admin_product.state = :draft if @admin_product.state.nil?
+
     unless @admin_product.photo_id.nil?
       @current_photo_url = Photo.find(@admin_product.photo_id).avatar.url(:medium)
     end
@@ -48,6 +50,8 @@ class Admin::ProductsController < Admin::ApplicationController
   # PATCH/PUT /admin/products/1
   # PATCH/PUT /admin/products/1.json
   def update
+    @photo = Photo.new
+
     respond_to do |format|
       if @admin_product.update(admin_product_params)
         format.html { redirect_to edit_admin_product_path(@admin_product), notice: '產品編輯成功。' }
@@ -89,7 +93,8 @@ class Admin::ProductsController < Admin::ApplicationController
         :en_content, 
         :en_description, 
         :applicable_types_string,
-        :photo_id
+        :photo_id,
+        :state
       )
     end
 end

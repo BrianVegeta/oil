@@ -26,12 +26,22 @@ image_data = @current_photo_url if @current_photo_url
     </div>
   <% end %>
   <%= f.hidden_field :photo_id %>
-  <div class="form-group">
-    <label class="control-label">置頂</label>
-    <div class="input-group col-sm-3">
-      <div class="input-group-addon">第</div>
-      <%= f.number_field :top_rate, min: 1, class: 'form-control' %>  
-      <div class="input-group-addon">順位</div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label class="control-label">上下架</label>
+      <div class="input-group">
+        <% states = @admin_product.state_paths.to_states.map { |state| [Product.human_state_name(state), state] } %>
+        <%= f.select(:state, states, {}, {class: 'form-control'}) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">置頂</label>
+      <div class="input-group col-sm-3">
+        <div class="input-group-addon">第</div>
+        <%= f.number_field :top_rate, min: 1, class: 'form-control' %>  
+        <div class="input-group-addon">順位</div>
+      </div>
     </div>
   </div>
   <div class="form-group">
