@@ -32,7 +32,7 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
-    bootstrap-sass (3.3.4)
+    bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
@@ -143,7 +143,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.3)
+  bootstrap-sass (= 3.3.3)
   ckeditor_rails
   coffee-rails (~> 4.0.0)
   devise
