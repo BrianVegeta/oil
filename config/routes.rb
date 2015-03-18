@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'index#index'
 
+  get 'contact' => 'contact#index', as: :contact
+
   resources :products, only: [:index, :show]
 
   # Example of regular route:

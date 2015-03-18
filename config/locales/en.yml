@@ -32,6 +32,7 @@ en:
         chs: '简体'
         en: 'English'
       product: 'Product'
+      contact: 'Contact'
   admin:
     nav:
       header:

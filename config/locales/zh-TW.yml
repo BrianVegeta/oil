@@ -11,6 +11,7 @@ zh-TW:
         chs: '简体'
         en: 'English'
       product: '產品'
+      contact: '聯絡我們'
   admin:
     nav:
       header:
