@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  contact:
+    phone: 886-8-7882137
+    fax: 886-8-7802137
+    company: 'SHUNG-CHIN TRANDING CO.,LTD'
+    address: 'No.118, Jieshou Rd., Chaozhou Township, Pingtung County 920, Taiwan (R.O.C.)'
+    phone_title: 'Phone'
+    fax_title: 'Fax'
   product:
     applicable_type: 'Applicable Types'
   nav:

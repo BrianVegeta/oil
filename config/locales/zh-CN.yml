@@ -1,4 +1,11 @@
 zh-CN:
+  contact:
+    phone: 886-8-7882137
+    fax: 886-8-7802137
+    company: 盛群贸易有限公司
+    address: 屏东县潮州镇介寿路118号
+    phone_title: '电话'
+    fax_title: '传真'
   product:
     applicable_type: '符合规格'
   nav:
