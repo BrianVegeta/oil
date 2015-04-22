@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::ApplicationController
   before_action :set_admin_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:new, :create, :edit, :update]
   before_action :check_product_admin
 
   # GET /admin/products
@@ -16,25 +17,20 @@ class Admin::ProductsController < Admin::ApplicationController
   # GET /admin/products/new
   def new
     @admin_product = Product.new
-    @photo = Photo.new
+    set_photo_url
   end
 
   # GET /admin/products/1/edit
   def edit
-    @photo = Photo.new
-
     @admin_product.state = :draft if @admin_product.state.nil?
-
-    unless @admin_product.photo_id.nil?
-      @current_photo_url = Photo.find(@admin_product.photo_id).avatar.url(:medium)
-    end
-
+    set_photo_url
   end
 
   # POST /admin/products
   # POST /admin/products.json
   def create
     @admin_product = Product.new(admin_product_params)
+    set_photo_url
 
     respond_to do |format|
       if @admin_product.save
@@ -50,8 +46,7 @@ class Admin::ProductsController < Admin::ApplicationController
   # PATCH/PUT /admin/products/1
   # PATCH/PUT /admin/products/1.json
   def update
-    @photo = Photo.new
-
+    set_photo_url
     respond_to do |format|
       if @admin_product.update(admin_product_params)
         format.html { redirect_to edit_admin_product_path(@admin_product), notice: '產品編輯成功。' }
@@ -96,5 +91,17 @@ class Admin::ProductsController < Admin::ApplicationController
         :photo_id,
         :state
       )
+    end
+
+    def set_photo_url
+      if @admin_product.photo_id.nil?
+        @current_photo_url = false
+      else
+        @current_photo_url = Photo.find(@admin_product.photo_id).avatar.url(:medium)
+      end
+    end
+
+    def set_photo
+      @photo = Photo.new
     end
 end
