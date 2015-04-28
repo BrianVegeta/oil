@@ -103,6 +103,14 @@ image_data = @current_photo_url if @current_photo_url
       $('.thumbnail').find('.cover-display').attr('src', data.result.medium)
       $('.loading-gif').hide();
       $('#product_photo_id').val(data.result.id);
+    },
+    fail: function(e, data) {
+      if (data.errorThrown === 'Unprocessable Entity') {
+        alert(data.jqXHR.responseJSON.avatar[0]);
+      } else {
+        alert('上傳出錯，不明原因。');
+      }
+      $('.loading-gif').hide();
     }
   });
 

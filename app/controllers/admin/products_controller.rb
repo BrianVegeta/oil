@@ -63,7 +63,7 @@ class Admin::ProductsController < Admin::ApplicationController
   def destroy
     @admin_product.destroy
     respond_to do |format|
-      format.html { redirect_to admin_products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to admin_products_url, notice: '產品已成功刪除。' }
       format.json { head :no_content }
     end
   end
