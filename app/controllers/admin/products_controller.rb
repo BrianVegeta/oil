@@ -34,7 +34,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_product.save
-        format.html { redirect_to edit_admin_product_path(@admin_product), notice: '產品新增成功。' }
+        format.html { redirect_to admin_products_path, notice: '產品新增成功。' }
         format.json { render :show, status: :created, location: @admin_product }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class Admin::ProductsController < Admin::ApplicationController
     set_photo_url
     respond_to do |format|
       if @admin_product.update(admin_product_params)
-        format.html { redirect_to edit_admin_product_path(@admin_product), notice: '產品編輯成功。' }
+        format.html { redirect_to admin_products_path(@admin_product), notice: '產品編輯成功。' }
         format.json { render :show, status: :ok, location: @admin_product }
       else
         format.html { render :edit }
