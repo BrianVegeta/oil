@@ -50,7 +50,7 @@ zh-TW:
               blank: '必填。'
             zh_TW_content:
               blank: '必填。'
-            applicable_types_string:
+            zh_TW_applicable_s:
               blank: '必填。'
         user:
           attributes:
@@ -72,7 +72,7 @@ zh-TW:
       product:
         zh_TW_title: '產品名（繁體）'
         zh_TW_content: '內容物（繁體）'
-        applicable_types_string: '適用規格'
+        zh_TW_applicable_s: '適用規格'
       user:
         username: '名稱'
         email: "電子信箱"

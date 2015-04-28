@@ -81,13 +81,15 @@ class Admin::ProductsController < Admin::ApplicationController
         :zh_TW_title, 
         :zh_TW_content, 
         :zh_TW_description, 
+        :zh_TW_applicable_s,
         :zh_CN_title, 
         :zh_CN_content, 
         :zh_CN_description, 
+        :zh_CN_applicable_s,
         :en_title, 
         :en_content, 
         :en_description, 
-        :applicable_types_string,
+        :en_applicable_s,
         :photo_id,
         :state
       )

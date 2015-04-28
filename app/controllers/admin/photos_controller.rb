@@ -14,7 +14,7 @@ class Admin::PhotosController < Admin::ApplicationController
             id: @admin_photo.id
           }
         else
-          render json: @photo.errors, status: :unprocessable_entity
+          render json: @admin_photo.errors, status: :unprocessable_entity
         end                  
       }
     end

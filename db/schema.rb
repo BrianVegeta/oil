@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315233911) do
+ActiveRecord::Schema.define(version: 20150428145718) do
 
   create_table "photos", force: true do |t|
     t.datetime "created_at"
@@ -32,12 +32,14 @@ ActiveRecord::Schema.define(version: 20150315233911) do
     t.string   "en_title",          null: false
     t.string   "en_content",        null: false
     t.text     "en_description"
-    t.text     "applicable_types"
+    t.text     "zh_TW_applicables"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "photo_id"
     t.integer  "top_rate"
     t.string   "state"
+    t.text     "zh_CN_applicables"
+    t.text     "en_applicables"
   end
 
   create_table "users", force: true do |t|

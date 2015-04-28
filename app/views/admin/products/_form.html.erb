@@ -1,19 +1,21 @@
-<% 
-image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MyAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjU1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5M3gyMDA8L3RleHQ+PC9nPjwvc3ZnPg=="
-
+<%
+image_data = Photo::DEFAULT_IMG_SRC
 image_data = @current_photo_url if @current_photo_url
 %>
 <div class="form-group">
-  <label class="control-label">上傳圖片</label>
+  <label class="control-label">
+    上傳圖片
+  </label>
   <div class="row">
     <div class="col-sm-5">
       <a href="#" class="thumbnail">
         <%= form_for [:admin, @photo], remote: true, authenticity_token: true, :html => { :multipart => true, id: 'photo_form' } do |f| %>
-          <%= f.file_field :avatar, id: :fileupload %>
+          <%= f.file_field :avatar, id: :fileupload, accept: "image/*" %>
         <% end %>
         <img class="img-responsive loading-gif" src="http://sierrafire.cr.usgs.gov/images/loading.gif" style="display: none;">
         <img class="img-responsive cover-display" data-src="holder.js/100%x200" alt="100%x200" src="<%= image_data %>" data-holder-rendered="true">
       </a>
+      <p class="help-block">格式: .jpg, .jpeg, .gif, .png，且檔案小於4MB。</p>
     </div>
   </div>
 </div>
@@ -27,7 +29,7 @@ image_data = @current_photo_url if @current_photo_url
   <% end %>
   <%= f.hidden_field :photo_id %>
   <div class="row">
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-3">
       <label class="control-label">上下架</label>
       <div class="input-group">
         <% states = @admin_product.state_paths.to_states.map { |state| [Product.human_state_name(state), state] } %>
@@ -42,11 +44,8 @@ image_data = @current_photo_url if @current_photo_url
         <%= f.number_field :top_rate, min: 1, class: 'form-control' %>  
         <div class="input-group-addon">順位</div>
       </div>
+      <p class="help-block">可不設定，不設定時，排序依照新增時間，最新的在最前。</p>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label">適用規格 (EX: JASO, HYUNDAI, JAGUAR 使用逗號區隔)</label>
-    <%= f.text_area :applicable_types_string, class: 'form-control', rows: 3 %>
   </div>
 
   <div class="right-tabs" role="tabpanel">

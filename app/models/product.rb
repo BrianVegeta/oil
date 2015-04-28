@@ -1,8 +1,11 @@
 class Product  < ActiveRecord::Base
-  serialize :applicable_types
+  serialize :zh_TW_applicables
+  serialize :zh_CN_applicables
+  serialize :en_applicables
 
   belongs_to :photo
 
+  # State machine
   state_machine :state, initial: :draft do 
     state :draft
     state :public
@@ -19,10 +22,10 @@ class Product  < ActiveRecord::Base
   # callbakcs
   
   # validates
-  validates :top_rate,                    numericality: { greater_than_or_equal_to: 1 }, unless: :not_top_rate?
-  validates :zh_TW_title,                 presence: true
-  validates :zh_TW_content,               presence: true
-  validates :applicable_types_string,     presence: true
+  validates :top_rate,            numericality: { greater_than_or_equal_to: 1 }, unless: :not_top_rate?
+  validates :zh_TW_title,         presence: true
+  validates :zh_TW_content,       presence: true
+  validates :zh_TW_applicable_s,  presence: true
 
   def cover_src(size)
     if self.photo.nil?
@@ -32,38 +35,29 @@ class Product  < ActiveRecord::Base
     end
   end
 
-  def applicable_types_string
-    return '' if self.applicable_types.nil?
-    self.applicable_types.join(', ')
+  ['zh_TW', 'zh_CN', 'en'].each do |lang|
+    define_method("#{lang}_applicable_s") do
+      return '' if self.send("#{lang}_applicables").nil?
+      self.send("#{lang}_applicables").join(', ')
+    end
+
+    define_method("#{lang}_applicable_s=") do |value|
+      self.send("#{lang}_applicables=", value.split(",").map { |t| t.strip })
+    end
+
   end
 
-  def applicable_types_string=(value)
-    self.applicable_types = value.split(",").map { |t| t.strip }
-  end
-
-  def trans_title
-    if send(locale_prefix('title')).present?
-      send(locale_prefix('title'))
-    else
-      zh_TW_title
+  ['title', 'content', 'description', 'applicables'].each do |col|
+    define_method("trans_#{col}") do
+      col_with_lang = self.send locale_prefix(col)
+      if col_with_lang.present?
+        col_with_lang
+      else
+        self.send("zh_TW_#{col}")
+      end
     end
   end
 
-  def trans_content
-    if send(locale_prefix('content')).present?
-      send(locale_prefix('content'))
-    else
-      zh_TW_content
-    end
-  end
-
-  def trans_description
-    if send(locale_prefix('description')).present?
-      send(locale_prefix('description'))
-    else
-      zh_TW_description
-    end
-  end
 
   private
   def locale_prefix(column_name)
