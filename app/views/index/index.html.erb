@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-sm-5">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[0].cover_src(:medium)) %>')">
+            <a href="<%= @products[0].id ? product_path(@products[0].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[0].cover_src(:medium)) %>')">
               <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 <h3>
@@ -19,7 +19,7 @@
             </a>
           </div>
           <div class="col-xs-12 col-sm-12">
-            <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[1].cover_src(:medium)) %>')">
+            <a href="<%= @products[1].id ? product_path(@products[1].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[1].cover_src(:medium)) %>')">
               <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 <h3>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-7">
-        <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[2].cover_src(:medium)) %>'); background-size: auto 100%">
+        <a href="<%= @products[2].id ? product_path(@products[2].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[2].cover_src(:medium)) %>'); background-size: auto 100%">
           <img src="<%= asset_path("blank_h.png") %>" class="img-responsive">
           <div>
             <h3>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-8">
-        <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[3].cover_src(:medium)) %>')">
+        <a href="<%= @products[3].id ? product_path(@products[3].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[3].cover_src(:medium)) %>')">
           <img src="<%= asset_path("blank.png") %>" class="img-responsive">
           <div>
             <h3>
@@ -69,7 +69,7 @@
       <div class="col-xs-12 col-sm-4">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[4].cover_src(:medium)) %>')">
+            <a href="<%= @products[4].id ? product_path(@products[4].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[4].cover_src(:medium)) %>')">
               <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 <h3>
@@ -84,7 +84,7 @@
             </a>
           </div>
           <div class="col-xs-12 col-sm-12" style="margin-top: 10px;">
-            <a href="#" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[5].cover_src(:medium)) %>')">
+            <a href="<%= @products[5].id ? product_path(@products[5].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[5].cover_src(:medium)) %>')">
               <img src="<%= asset_path("blank.png") %>" class="img-responsive">
               <div>
                 <h3>
