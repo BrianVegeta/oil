@@ -14,6 +14,8 @@ GEM
       activesupport (= 4.1.6)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_link_to (1.0.3)
+      actionpack
     activemodel (4.1.6)
       activesupport (= 4.1.6)
       builder (~> 3.1)
@@ -143,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   bootstrap-sass (= 3.3.3)
   ckeditor_rails
   coffee-rails (~> 4.0.0)

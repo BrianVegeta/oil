@@ -12,25 +12,15 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <% if current_user.is_product_manager %>
-          <li class="active">
-            <a href="<%= admin_products_path %>">
-              <%= t('admin.nav.link_list.manage_product') %>
-            </a>
-          </li>
-        <% end %>
-
-        <% if current_user.is_customer_service_manager %>
-          <li>
-            <a href="#"><%= t('admin.nav.link_list.manage_customer_service') %></a>
-          </li>
+          <%= active_link_to(admin_products_path, wrap_tag: :li) do %>
+            <%= t('admin.nav.link_list.manage_product') %>
+          <% end %>
         <% end %>
 
         <% if current_user.is_super_admin %>
-          <li>
-            <a href="<%= admin_users_path %>">
-              <%= t('admin.nav.link_list.manage_manager') %>
-            </a>
-          </li>
+          <%= active_link_to(admin_users_path, wrap_tag: :li) do %>
+            <%= t('admin.nav.link_list.manage_manager') %>
+          <% end %>
         <% end %>
 
       </ul>
