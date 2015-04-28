@@ -2,7 +2,7 @@ zh-TW:
   contact:
     phone: 886-8-7882137
     fax: 886-8-7802137
-    company: 盛群貿易有限公司
+    company: 勝群貿易有限公司
     address: 屏東縣潮州鎮介壽路118號
     phone_title: '電話'
     fax_title: '傳真'
@@ -40,6 +40,10 @@ zh-TW:
         public: "上架"
     errors:
       models:
+        photo:
+          attributes:
+            avatar_content_type: 
+              invalid: '格式錯誤(.jpg, .jpeg, .gif, .png)'
         product:
           attributes:
             zh_TW_title:
