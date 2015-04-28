@@ -107,8 +107,9 @@ image_data = @current_photo_url if @current_photo_url
     fail: function(e, data) {
       if (data.errorThrown === 'Unprocessable Entity') {
         alert(data.jqXHR.responseJSON.avatar[0]);
+      if (data.errorThrown === 'Request Entity Too Large') {
       } else {
-        alert('上傳出錯，不明原因。');
+        alert('檔案太大無法上傳。');
       }
       $('.loading-gif').hide();
     }
