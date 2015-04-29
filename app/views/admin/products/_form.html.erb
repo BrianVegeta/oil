@@ -59,15 +59,15 @@ image_data = @current_photo_url if @current_photo_url
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">
+      <div role="tabpanel" class="tab-pane fade in active" id="home">
         <br>
         <%= render 'zh_TW_input', {f: f} %>      
       </div>
-      <div role="tabpanel" class="tab-pane" id="profile">
+      <div role="tabpanel" class="tab-pane fade" id="profile">
         <br>
         <%= render 'zh_CN_input', {f: f} %>      
       </div>
-      <div role="tabpanel" class="tab-pane" id="messages">
+      <div role="tabpanel" class="tab-pane fade" id="messages">
         <br>
         <%= render 'en_input', {f: f} %>      
       </div>

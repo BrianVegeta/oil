@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-7">
-        <a href="<%= @products[2].id ? product_path(@products[2].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[2].cover_src(:medium)) %>'); background-size: auto 100%">
+        <a href="<%= @products[2].id ? product_path(@products[2].id) : '#' %>" class="rollover blueroll" style="background-image: url('<%= asset_path(@products[2].cover_src(:medium)) %>');">
           <img src="<%= asset_path("blank_h.png") %>" class="img-responsive">
           <div>
             <h3>
