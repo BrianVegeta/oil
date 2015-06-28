@@ -64,5 +64,6 @@ Rails.application.routes.draw do
     resources :products
     resources :photos, only: :create
     resources :wallpapers
+    post 'wallpapers/sort' => 'wallpapers#sort', as: :wallpaper_sort
   end
 end

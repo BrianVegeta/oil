@@ -13,7 +13,7 @@
       %th{width: 150}
   %tbody
     - @wallpapers.each_with_index do |wallpaper, index|
-      %tr{class: "#{index.odd? ? 'warning': 'warning'}"}
+      %tr{class: "#{index.odd? ? 'warning': 'warning'} wallpaper-row", data: {id: "#{wallpaper.id}"}}
         %td= wallpaper.id
         %td
           .thumbnail= image_tag wallpaper.avatar.url(:thumb)
@@ -38,9 +38,22 @@
 
       if (confirm('確定移動順序?')) {
         $("#sort tbody").sortable( "disable" );
-        setTimeout(function() {
-          $("#sort tbody").sortable( "enable" );
-        }, 2000);
+
+        var sorts = [];
+        $('.wallpaper-row').each(function(index) {
+          sorts.push($(this).data('id'));
+        });
+
+        $.post('/admin/wallpapers/sort',
+          {
+            sorts: sorts
+          },
+          function(response) {
+            if (response.status === true) {
+              $("#sort tbody").sortable( "enable" );
+            }
+        });
+
       } else {
         $("#sort tbody").sortable( "cancel" );
       }

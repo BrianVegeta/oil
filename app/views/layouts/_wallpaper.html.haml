@@ -1,13 +1,9 @@
 #wallpaper
-  #home-carousel.carousel.slide{data: {ride: "carousel"}}
+  #home-carousel.carousel.slide{data: {ride: "carousel", interval: "3000"}}
     %ol.carousel-indicators
-      %li.active{data: {target: "#home-carousel", slide: {to: "0"}}}
-      %li{data: {target: "#home-carousel", slide: {to: "1"}}}
-      %li{data: {target: "#home-carousel", slide: {to: "2"}}}
+      - @wallpapers.each_with_index do |wallpaper, index|
+        %li{class: "#{index == 0 ? 'active' : ''}", data: {target: "#home-carousel", slide: {to: "#{index}"}}}
     .carousel-inner{role: "listbox"}
-      .item.active
-        = image_tag('http://www.shedoesthecity.com/wp-content/uploads/files/2015/05/nrm_1404739639-endometriosis.jpg')
-      .item
-        = image_tag('http://www.shedoesthecity.com/wp-content/uploads/files/2015/05/nrm_1404739639-endometriosis.jpg')
-      .item
-        = image_tag('http://www.shedoesthecity.com/wp-content/uploads/files/2015/05/nrm_1404739639-endometriosis.jpg')
+      - @wallpapers.each_with_index do |wallpaper, index|
+        .item{class: "#{index == 0 ? 'active' : ''}"}
+          = image_tag(wallpaper.avatar.url(:large))

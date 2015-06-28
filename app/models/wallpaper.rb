@@ -1,5 +1,5 @@
 class Wallpaper < ActiveRecord::Base
-
+  default_scope { order('sort ASC').order('id DESC') }
   has_attached_file :avatar,
                     :styles => {
                       :thumb => "200x100^",

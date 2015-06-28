@@ -89,6 +89,18 @@ class Admin::WallpapersController < Admin::ApplicationController
     end
   end
 
+  def sort
+    respond_to do |format|
+      format.json {
+        params[:sorts].each_with_index do |id, index|
+          wallpaper = Wallpaper.find(id)
+          wallpaper.update(sort: index)
+        end
+        render json: {status: true}
+      }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wallpaper
