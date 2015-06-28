@@ -25,6 +25,7 @@ zh-TW:
         name: "勝群管理後台"
       link_list:
         manage_product: '管理產品'
+        manage_wallpaper: '管理封面'
         manage_manager: '管理員管理'
         manage_customer_service: '客服管理'
       user:
@@ -42,7 +43,7 @@ zh-TW:
       models:
         photo:
           attributes:
-            avatar_content_type: 
+            avatar_content_type:
               invalid: '格式錯誤(.jpg, .jpeg, .gif, .png)'
         product:
           attributes:
@@ -54,7 +55,7 @@ zh-TW:
               blank: '必填。'
         user:
           attributes:
-            username: 
+            username:
               blank: '必填。'
             email:
               taken: '已經有人使用。'

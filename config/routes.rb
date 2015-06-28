@@ -63,5 +63,6 @@ Rails.application.routes.draw do
     resources :users
     resources :products
     resources :photos, only: :create
+    resources :wallpapers
   end
 end

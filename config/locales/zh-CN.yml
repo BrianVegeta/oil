@@ -26,6 +26,7 @@ zh-CN:
       link_list:
         manage_product: '管理產品'
         manage_manager: '管理員管理'
+        manage_wallpaper: '管理封面'
         manage_customer_service: '客服管理'
       user:
         logout: '登出'
@@ -38,7 +39,7 @@ zh-CN:
       models:
         user:
           attributes:
-            username: 
+            username:
               blank: '必填。'
             email:
               taken: '已經有人使用。'

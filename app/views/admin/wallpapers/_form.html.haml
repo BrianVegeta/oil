@@ -1,0 +1,85 @@
+%a.thumbnail.wallpaper-upload{:href => "#"}
+  = form_for [:admin, @wallpaper], remote: true, authenticity_token: true, :html => { :multipart => true, id: 'photo_form' } do |f|
+    = f.file_field :avatar, id: :fileupload, accept: "image/*"
+  - if @wallpaper.avatar_file_name
+    = image_tag @wallpaper.avatar.url(:medium), class: "img-responsive cover-display"
+  - else
+    = image_tag 'background_gray.png', class: "img-responsive cover-display"
+  = image_tag 'loading.gif', class: "img-responsive loading-gif", style: "display: none;"
+
+
+= form_for([:admin, @wallpaper], :html => { id: 'form', class: 'form', :role => "form", autocomplete: 'off'}) do |f|
+  .form-group
+    %label.control-label 標題
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.submit '送出', class: "btn btn-primary col-sm-2 #{@wallpaper.avatar_file_name ? '': 'disabled'}", id: 'submit'
+
+:javascript
+  $('.wallpaper-upload').fileupload({
+    dataType: 'json',
+    add: function (e, data) {
+      $('.loading-gif').show();
+      data.submit();
+    },
+    done: function (e, data) {
+      $('.loading-gif').hide();
+      $('.wallpaper-upload').find('.cover-display').attr('src', data.result.medium)
+      $('#form').attr('action', data.result.action);
+      $('#form').find('div').first().append('<input name="_method" type="hidden" value="patch">');
+      $('#submit').removeClass('disabled');
+    },
+    fail: function(e, data) {
+      if (data.errorThrown === 'Unprocessable Entity') {
+        alert(data.jqXHR.responseJSON.avatar[0]);
+      } else if (data.errorThrown === 'Request Entity Too Large') {
+        alert('檔案太大無法上傳。');
+      } else {
+        alert('上傳出錯，不明原因。');
+      }
+      $('.loading-gif').hide();
+    }
+  });
+
+:css
+  .thumbnail {
+    position: relative;
+  }
+  .loading-gif {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px !important;
+    top: 50%;
+    margin-top: -150px !important;
+  }
+  .cover-display {
+    width: 1000px;
+    height: 500px;
+  }
+
+  #fileupload {
+    height:  100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+  }
+  textarea { resize: vertical; }
+  .right-tabs .nav {
+      float: right;
+      border-bottom: 0px;
+  }
+  .right-tabs .nav li { float: left }
+  .right-tabs .tab-content {
+      float: left;
+      border-top: 1px solid #ddd;
+      margin-top: -1px;
+  }

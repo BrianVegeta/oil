@@ -12,6 +12,8 @@
         - if current_user.is_product_manager
           = active_link_to(admin_products_path, wrap_tag: :li) do
             = t('admin.nav.link_list.manage_product')
+          = active_link_to(admin_wallpapers_path, wrap_tag: :li) do
+            = t('admin.nav.link_list.manage_wallpaper')
         - if current_user.is_super_admin
           = active_link_to(admin_users_path, wrap_tag: :li) do
             = t('admin.nav.link_list.manage_manager')

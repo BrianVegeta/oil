@@ -68,10 +68,7 @@ ActiveRecord::Schema.define(version: 20150628165624) do
 
   create_table "wallpapers", force: true do |t|
     t.string   "title"
-    t.string   "wallpapers_file_name"
-    t.string   "wallpapers_content_type"
-    t.integer  "wallpapers_file_size"
-    t.datetime "wallpapers_updated_at"
+    t.boolean  "has_confirmed",       default: false, null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
