@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628203028) do
+ActiveRecord::Schema.define(version: 20150628221457) do
+
+  create_table "news", force: true do |t|
+    t.string   "title",      default: "", null: false
+    t.text     "content",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.datetime "created_at"

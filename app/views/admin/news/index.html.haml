@@ -1,0 +1,22 @@
+%h1 最新消息列表
+= link_to '新增消息列表', new_admin_news_path
+
+%table.table
+  %thead
+    %tr
+      %th{width: 150} ID
+      %th 標題
+      %th{width: 150} 新增於
+      %th{width: 150} 更新於
+      %th{width: 150}
+  %tbody
+    - @news.each_with_index do |news, index|
+      %tr
+        %td= news.id
+        %td= news.title.nil? || news.title.blank? ? '未設定標題': news.title
+        %td= news.created_at.strftime("%Y/%m/%d %H:%M")
+        %td= news.updated_at.strftime("%Y/%m/%d %H:%M")
+        %td
+          = link_to '查看', admin_news_path(news)
+          = link_to '編輯', edit_admin_news_path(news)
+          = link_to '刪除', admin_news_path(news), method: :delete, data: { confirm: '確定刪除?' }

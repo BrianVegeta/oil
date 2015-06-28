@@ -1,0 +1,30 @@
+= form_for([:admin, @news], :html => {class: 'form', :role => "form", autocomplete: 'off'}) do |f|
+  - if @news.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@news.errors.count, "error")
+        prohibited this admin_news from being saved:
+      %ul
+        - @news.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    %label.control-label 標題
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    %label.control-label 內容
+    = f.text_area :content, class: 'form-control ckeditor'
+  .form-group
+    = f.submit '送出', class: "btn btn-primary col-sm-2", id: 'submit'
+:javascript
+  $('.ckeditor').ckeditor({
+    height: 280,
+    toolbar: [
+      { name: 'document', items: [ 'Source'] },
+      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+      { name: 'insert', items: [ 'Table', 'Iframe'] },
+      { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+      { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+      { name: 'tools', items: [ 'Maximize'] },
+      { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] }
+    ]
+  });
