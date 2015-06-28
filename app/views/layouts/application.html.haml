@@ -10,6 +10,19 @@
   %body#front
     .wrap
       = render 'layouts/nav_bar'
+      #wallpaper
+        #home-carousel.carousel.slide{data: {ride: "carousel"}}
+          %ol.carousel-indicators
+            %li.active{data: {target: "#home-carousel", slide: {to: "0"}}}
+            %li{data: {target: "#home-carousel", slide: {to: "1"}}}
+            %li{data: {target: "#home-carousel", slide: {to: "2"}}}
+          .carousel-inner{role: "listbox"}
+            .item.active
+              = image_tag('http://royalstache.com/wp-content/uploads/2014/03/wallpaper_sexy_tattoo_girl_hd_hot.jpg')
+            .item
+              = image_tag('http://royalstache.com/wp-content/uploads/2014/03/wallpaper_sexy_tattoo_girl_hd_hot.jpg')
+            .item
+              = image_tag('http://royalstache.com/wp-content/uploads/2014/03/wallpaper_sexy_tattoo_girl_hd_hot.jpg')
       .container
         - if flash[:notice]
           .alert.alert-info{:role => "alert"}
