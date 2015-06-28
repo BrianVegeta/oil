@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'contact' => 'contact#index', as: :contact
 
   resources :products, only: [:index, :show]
+  resources :news, only: [:index, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
