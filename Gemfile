@@ -50,3 +50,4 @@ gem 'state_machine'
 gem 'active_link_to'
 
 gem 'haml'
+gem 'jquery-ui-rails'

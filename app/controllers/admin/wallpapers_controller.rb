@@ -68,7 +68,7 @@ class Admin::WallpapersController < Admin::ApplicationController
       }
 
       format.html {
-        if @wallpaper.update(wallpaper_params)
+        if @wallpaper.update(wallpaper_params.merge(has_confirmed: true))
           redirect_to admin_wallpapers_path, notice: '已增加新封面。'
         else
           redirect_to new_admin_wallpaper_path, notice: '更新失敗!'

@@ -1,8 +1,9 @@
 %h1 封面列表
 = link_to '新增', new_admin_wallpaper_path
 
-%table.table
-  %head
+
+%table.table.table-bordered#sort
+  %thead
     %tr
       %th ID
       %th{width: 150} 圖片
@@ -10,15 +11,46 @@
       %th{width: 150} 新增於
       %th{width: 150} 更新於
       %th{width: 150}
-  %body
-    - @wallpapers.each do |wallpaper|
-      %tr
+  %tbody
+    - @wallpapers.each_with_index do |wallpaper, index|
+      %tr{class: "#{index.odd? ? 'warning': 'warning'}"}
         %td= wallpaper.id
         %td
           .thumbnail= image_tag wallpaper.avatar.url(:thumb)
-        %td= wallpaper.title.nil? ? '未設定標題': wallpaper.title
+        %td= wallpaper.title.nil? || wallpaper.title.blank? ? '未設定標題': wallpaper.title
         %td= wallpaper.created_at.strftime("%Y/%m/%d %H:%M")
         %td= wallpaper.updated_at.strftime("%Y/%m/%d %H:%M")
         %td
           = link_to '編輯', edit_admin_wallpaper_path(wallpaper)
           = link_to '刪除', admin_wallpaper_path(wallpaper), method: :delete, data: { confirm: '確定刪除?' }
+
+:javascript
+  var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+      $(this).width($(this).width());
+    });
+    return ui;
+  };
+
+  $("#sort tbody").sortable({
+    helper: fixHelper,
+    update: function() {
+
+      if (confirm('確定移動順序?')) {
+        $("#sort tbody").sortable( "disable" );
+        setTimeout(function() {
+          $("#sort tbody").sortable( "enable" );
+        }, 2000);
+      } else {
+        $("#sort tbody").sortable( "cancel" );
+      }
+
+    }
+  }).disableSelection();
+
+
+
+:css
+  .ui-sortable-helper {
+    display: table;
+  }

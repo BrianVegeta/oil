@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require ckeditor-jquery
 //= require jquery-fileupload/basic
+//= require jquery-ui
 //= require_tree .
