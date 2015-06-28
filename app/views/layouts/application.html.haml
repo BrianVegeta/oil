@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= t('contact.company')
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = favicon_link_tag 'sc-icon.png'
+  %body#front
+    .wrap
+      = render 'layouts/nav_bar'
+      .container
+        - if flash[:notice]
+          .alert.alert-info{:role => "alert"}
+            = flash[:notice]
+        = yield
+      .push
+    = render 'layouts/footer'

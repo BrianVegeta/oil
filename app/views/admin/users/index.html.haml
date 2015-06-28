@@ -1,0 +1,35 @@
+%h1 管理員列表
+= link_to '新增管理員', new_admin_user_path
+%table.table
+  %thead
+    %tr
+      %th ID
+      %th 名稱
+      %th email
+      %th 產品管理權限
+      %th 客服權限
+      %th 超級管理員
+      %th 新增於
+      %th 修改於
+      %th
+  %tbody
+    - @admin_users.each do |admin_user|
+      %tr
+        %td= admin_user.id
+        %td= admin_user.username
+        %td= admin_user.email
+        %td
+          - if admin_user.is_product_manager
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+        %td
+          - if admin_user.is_customer_service_manager
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+        %td
+          - if admin_user.is_super_admin
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+        %td= admin_user.created_at.strftime("%Y/%m/%d %H:%M")
+        %td= admin_user.updated_at.strftime("%Y/%m/%d %H:%M")
+        %td
+          = link_to "編輯", edit_admin_user_path(admin_user)
+          - if admin_user.id != current_user.id
+            = link_to '刪除', admin_user_path(admin_user), method: :delete, data: { confirm: '確定刪除？' }

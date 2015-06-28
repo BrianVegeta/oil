@@ -1,0 +1,16 @@
+#products.row
+  - @products.in_groups_of(4) do |row_products|
+    .col-xs-12.col-sm-12
+      .row
+        - row_products.each do |product|
+          .col-sm-3
+            %a.thumbnail{:href => "#{product_path(product.id)}"}
+              .row
+                .col-xs-12.col-sm-12
+                  %img{:alt => "160X160", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x100%", :src => "#{product.cover_src(:medium)}", :style => "height 100%; width: 100%; display: block;"}/
+                .col-xs-12.col-sm-12
+                  .caption
+                    %h4
+                      = product.trans_title
+                      %br/
+                      %small= product.trans_content

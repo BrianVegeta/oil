@@ -1,0 +1,19 @@
+- default_image = Photo::DEFAULT_IMG_SRC
+#product.row
+  .col-sm-8.col-sm-offset-2
+    .row.thumbnail
+      .col-xs-12.col-sm-6
+        %img{:alt => "100%x200", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x100%", :src => "#{(@product.photo.nil?) ? default_image : @product.photo.avatar.url(:medium)}", :style => "height: 100%; width: 100%; display: block;"}/
+      .col-xs-12.col-sm-6
+        .caption
+          %h4
+            = @product.trans_title
+            %br/
+            %small= @product.trans_content
+          .area-description= raw @product.trans_description
+          .area-applicable-type
+            %h5= t('product.applicable_type')
+            - @product.trans_applicables.each do |type|
+              %span
+                %span.glyphicon.glyphicon-asterisk{"aria-hidden" => "true"}
+                = type

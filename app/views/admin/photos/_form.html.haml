@@ -1,0 +1,11 @@
+= form_for(@admin_photo) do |f|
+  - if @admin_photo.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@admin_photo.errors.count, "error")
+        prohibited this admin_photo from being saved:
+      %ul
+        - @admin_photo.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

@@ -1,0 +1,67 @@
+#home.row
+  .col-xs-12.col-sm-10.col-sm-offset-1
+    .row
+      .col-xs-12.col-sm-5
+        .row
+          .col-xs-12.col-sm-12
+            %a.rollover.blueroll{:href => "#{@products[0].id ? product_path(@products[0].id) : '#'}", :style => "background-image: url('#{asset_path(@products[0].cover_src(:medium))}')"}
+              %img.img-responsive{:src => "#{asset_path("blank.png")}"}/
+              %div
+                %h3
+                  = @products[0].trans_title
+                  %br/
+                  %small= @products[0].trans_content
+                %div
+                  = raw @products[0].trans_description
+          .col-xs-12.col-sm-12
+            %a.rollover.blueroll{:href => "#{@products[1].id ? product_path(@products[1].id) : '#'}", :style => "background-image: url('#{asset_path(@products[1].cover_src(:medium))}')"}
+              %img.img-responsive{:src => "#{asset_path("blank.png")}"}/
+              %div
+                %h3
+                  = @products[1].trans_title
+                  %br/
+                  %small= @products[1].trans_content
+                %div
+                  = raw @products[1].trans_description
+      .col-xs-12.col-sm-7
+        %a.rollover.blueroll{:href => "#{@products[2].id ? product_path(@products[2].id) : '#'}", :style => "background-image: url('#{asset_path(@products[2].cover_src(:medium))}');"}
+          %img.img-responsive{:src => "#{asset_path("blank_h.png")}"}/
+          %div
+            %h3
+              = @products[2].trans_title
+              %br/
+              %small= @products[2].trans_content
+            %div
+              = raw @products[2].trans_description
+      .col-xs-12.col-sm-8
+        %a.rollover.blueroll{:href => "#{@products[3].id ? product_path(@products[3].id) : '#'}", :style => "background-image: url('#{asset_path(@products[3].cover_src(:medium))}')"}
+          %img.img-responsive{:src => "#{asset_path("blank.png")}"}/
+          %div
+            %h3
+              = @products[3].trans_title
+              %br/
+              %small= @products[3].trans_content
+            %div
+              = raw @products[3].trans_description
+      .col-xs-12.col-sm-4
+        .row
+          .col-xs-12.col-sm-12
+            %a.rollover.blueroll{:href => "#{@products[4].id ? product_path(@products[4].id) : '#'}", :style => "background-image: url('#{asset_path(@products[4].cover_src(:medium))}')"}
+              %img.img-responsive{:src => "#{asset_path("blank.png")}"}/
+              %div
+                %h3
+                  = @products[4].trans_title
+                  %br/
+                  %small= @products[4].trans_content
+                %div
+                  = raw @products[4].trans_description
+          .col-xs-12.col-sm-12{:style => "margin-top: 10px;"}
+            %a.rollover.blueroll{:href => "#{@products[5].id ? product_path(@products[5].id) : '#'}", :style => "background-image: url('#{asset_path(@products[5].cover_src(:medium))}')"}
+              %img.img-responsive{:src => "#{asset_path("blank.png")}"}/
+              %div
+                %h3
+                  = @products[5].trans_title
+                  %br/
+                  %small= @products[5].trans_content
+                %div
+                  = raw @products[5].trans_description

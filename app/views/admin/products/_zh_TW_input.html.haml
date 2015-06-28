@@ -1,0 +1,13 @@
+.form-group
+  %label.control-label 產品名
+  = f.text_field :zh_TW_title, class: 'form-control'
+.form-group
+  %label.control-label 內容物
+  = f.text_field :zh_TW_content, class: 'form-control'
+.form-group
+  %label.control-label 適用規格
+  = f.text_area :zh_TW_applicable_s, class: 'form-control', rows: 3
+  %p.help-block 範例: JASO, HYUNDAI, JAGUAR...，使用逗號（,）區隔。
+.form-group
+  %label.control-label 敘述
+  = f.text_area :zh_TW_description, class: 'form-control ckeditor'
