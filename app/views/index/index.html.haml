@@ -1,6 +1,19 @@
 #home.row
   .col-xs-12.col-sm-10.col-sm-offset-1
     .row
+      .col-xs-12.col-sm-7
+        .introduction-panel.redbg
+          %h1.introduction-title
+            %em 公司簡介
+          %p 勝群貿易有限公司於2012年6月由台灣經濟部核准成立，為專業油品進口貿易及品牌通路開拓，目前公司代理品牌有德國 KUTTENKEULER(庫登庫勒) 及自有品牌 WINSTANK(勝坦潤滑油)…等多項品牌油品，為了保證其純正的質量，所有的產品皆在原產地生產與罐裝，並通過生產管理，保證高品質。
+          %p 勝群貿易有限公司始終遵循國際貿易慣例，秉持著專業、優質服務、守信用的宗旨，創造互利雙贏的經營理念，我們深信以熱忱服務的新，與優良產品的提供，能讓接受服務的客戶與使用者獲得最大的滿意與需求。
+          %h1.introduction-title.service
+            %em 主要商品／服務項目
+          %p 油品行銷、通路推廣、目前公司代理品牌有德國 KUTTENKEULER(庫登庫勒) 及自有品牌 WINSTANK(勝坦潤滑油)…等多項品牌油品。
+      .col-xs-12.col-sm-5
+        %div.bluebg adadad
+  .col-xs-12.col-sm-10.col-sm-offset-1
+    .row
       .col-xs-12.col-sm-5
         .row
           .col-xs-12.col-sm-12
@@ -65,3 +78,10 @@
                   %small= @products[5].trans_content
                 %div
                   = raw @products[5].trans_description
+:css
+  .redbg {
+    background-color: red;
+  }
+  .bluebg {
+    background-color: blue;
+  }
