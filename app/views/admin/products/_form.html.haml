@@ -19,6 +19,11 @@
   = f.hidden_field :photo_id
   .row
     .form-group.col-sm-3
+      %label.control-label 產品類別
+      .input-group
+        - cates = Product::CATEGORIES
+        = f.select(:cate_id, cates.invert, {selected: @admin_product.cate_id || 6}, {class: 'form-control'})
+    .form-group.col-sm-3
       %label.control-label 上下架
       .input-group
         - states = @admin_product.state_paths.to_states.map { |state| [Product.human_state_name(state), state] }
@@ -95,7 +100,7 @@
     position: absolute;
     top: -10px;
   }
-  
+
   #fileupload {
     height:  100%;
     width: 100%;

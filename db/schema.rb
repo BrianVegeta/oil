@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628221457) do
+ActiveRecord::Schema.define(version: 20150629011423) do
 
   create_table "news", force: true do |t|
     t.string   "title",      default: "", null: false
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 20150628221457) do
   end
 
   create_table "products", force: true do |t|
-    t.string   "zh_TW_title",       null: false
-    t.string   "zh_TW_content",     null: false
+    t.string   "zh_TW_title",                   null: false
+    t.string   "zh_TW_content",                 null: false
     t.text     "zh_TW_description"
-    t.string   "zh_CN_title",       null: false
-    t.string   "zh_CN_content",     null: false
+    t.string   "zh_CN_title",                   null: false
+    t.string   "zh_CN_content",                 null: false
     t.text     "zh_CN_description"
-    t.string   "en_title",          null: false
-    t.string   "en_content",        null: false
+    t.string   "en_title",                      null: false
+    t.string   "en_content",                    null: false
     t.text     "en_description"
     t.text     "zh_TW_applicables"
     t.datetime "created_at"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150628221457) do
     t.string   "state"
     t.text     "zh_CN_applicables"
     t.text     "en_applicables"
+    t.integer  "cate_id",           default: 6
   end
 
   create_table "users", force: true do |t|

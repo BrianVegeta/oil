@@ -7,7 +7,7 @@
   }
   table .thumbnail > img {
     width: 100%;
-    height: 100%; 
+    height: 100%;
   }
 - image_data = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MyAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjU1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5M3gyMDA8L3RleHQ+PC9nPjwvc3ZnPg=="
 %h1 產品列表
@@ -19,6 +19,7 @@
       %th ID
       %th 圖片
       %th 產品名
+      %th 產品類別
       %th 新增於
       %th 更新於
       %th 狀態
@@ -36,6 +37,7 @@
             .thumbnail
               %img{:src => image_data}/
         %td= admin_product.zh_TW_title
+        %td= Product::CATEGORIES[admin_product.cate_id]
         %td= admin_product.created_at.strftime("%Y/%m/%d %H:%M")
         %td= admin_product.updated_at.strftime("%Y/%m/%d %H:%M")
         %td

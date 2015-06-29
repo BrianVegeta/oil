@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.where(state: :public).order('-top_rate desc').order('id desc')
+
+    if params[:cate]
+      cate = params[:cate]
+      @products = @products.where(cate_id: cate)
+    end
   end
 
   # GET /products/1
@@ -17,5 +22,5 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-    
+
 end

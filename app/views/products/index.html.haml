@@ -3,9 +3,9 @@
     .category-panel
       %ul.nav.nav-pills
         - Product::CATEGORIES.each do |k, cate|
-          %li{role: 'presentation'}
-            = link_to cate, '#'
-  - @products.in_groups_of(4) do |row_products|
+          = active_link_to(products_path(cate: k), active: /#{Regexp.escape(k.to_s)}/, wrap_tag: :li) do
+            = cate
+  - @products.in_groups_of(4, false) do |row_products|
     .col-xs-12.col-sm-12
       .row
         - row_products.each do |product|
