@@ -1,4 +1,9 @@
-%p#notice= notice
-= link_to 'Edit', edit_news_path(@news)
-|
-= link_to 'Back', news_index_path
+#news.row
+  .col-sm-8.col-sm-offset-2
+    .news-panel.panel.panel-default
+      .news-panel.panel-heading
+        %h2= @news.title
+      .news-panel.panel-body= raw @news.content
+      .news-panel.panel-footer
+        = @news.updated_at.strftime("%Y/%m/%d %H:%M")
+        新增
