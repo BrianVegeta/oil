@@ -1,7 +1,7 @@
 - default_image = Photo::DEFAULT_IMG_SRC
 #product.row
   .col-sm-8.col-sm-offset-2
-    .row.thumbnail
+    .row.thumbnail.product-panel
       .col-xs-12.col-sm-6
         %img{:alt => "100%x200", "data-holder-rendered" => "true", "data-src" => "holder.js/100%x100%", :src => "#{(@product.photo.nil?) ? default_image : @product.photo.avatar.url(:medium)}", :style => "height: 100%; width: 100%; display: block;"}/
       .col-xs-12.col-sm-6
