@@ -1,4 +1,10 @@
 #products.row
+  .col-xs-12.col-sm-10.col-sm-offset-1
+    .category-panel
+      %ul.nav.nav-pills
+        - Product::CATEGORIES.each do |k, cate|
+          %li{role: 'presentation'}
+            = link_to cate, '#'
   - @products.in_groups_of(4) do |row_products|
     .col-xs-12.col-sm-12
       .row

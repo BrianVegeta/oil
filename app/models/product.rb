@@ -1,4 +1,13 @@
 class Product  < ActiveRecord::Base
+  CATEGORIES = {
+    1 => 'KK汽車油',
+    2 => 'KK機車油＆副產品',
+    3 => 'WT汽車油',
+    4 => 'WT汽車油＆副產品',
+    5 => '大車專區',
+    6 => '其他代理產品'
+  }
+
   serialize :zh_TW_applicables
   serialize :zh_CN_applicables
   serialize :en_applicables
@@ -6,7 +15,7 @@ class Product  < ActiveRecord::Base
   belongs_to :photo
 
   # State machine
-  state_machine :state, initial: :draft do 
+  state_machine :state, initial: :draft do
     state :draft
     state :public
 
@@ -20,7 +29,7 @@ class Product  < ActiveRecord::Base
   end
 
   # callbakcs
-  
+
   # validates
   validates :top_rate,            numericality: { greater_than_or_equal_to: 1 }, unless: :not_top_rate?
   validates :zh_TW_title,         presence: true
