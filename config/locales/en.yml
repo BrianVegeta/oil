@@ -40,6 +40,7 @@ en:
         en: 'English'
       product: 'Product'
       contact: 'Contact'
+      news: 'News'
   admin:
     nav:
       header:

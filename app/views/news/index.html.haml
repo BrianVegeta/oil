@@ -1,13 +1,11 @@
-%h1 Listing news
-%table
-  %thead
-    %tr
-      %th{:colspan => "3"}
-  %tbody
-    - @news.each do |news|
-      %tr
-        %td= link_to 'Show', news
-        %td= link_to 'Edit', edit_news_path(news)
-        %td= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New News', new_news_path
+#news-index.row
+  .col-xs-12.col-sm-10.col-sm-offset-1
+    .list-group
+      - @news.each do |news|
+        = link_to news_path(news), class: 'list-group-item' do
+          %h3.list-group-item-heading= truncate(news.title, length: 35)
+          - html = sanitize(news.content, tags: %w(table tr td), attributes: %w(id class style) )
+          %p.list-group-item-text=raw truncate(html, length: 100)
+          %br
+          %p.list-group-item-text= news.updated_at.strftime("%Y/%m/%d %H:%M")
+
