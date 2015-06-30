@@ -1,6 +1,9 @@
 #news-index.row
   .col-xs-12.col-sm-10.col-sm-offset-1
     .list-group
+      - if @news.size == 0
+        .list-group-item
+          %h3.list-group-item-heading= '目前暫無最新消息。'
       - @news.each do |news|
         = link_to news_path(news), class: 'list-group-item' do
           %h3.list-group-item-heading= truncate(news.title, length: 35)
