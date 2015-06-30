@@ -10,8 +10,8 @@ class Product  < ActiveRecord::Base
 
   def self.cates
     {
-      1 => I18n.t('product.category.kk_motor'),
-      2 => I18n.t('product.category.kk_motor_others'),
+      1 => I18n.t('product.category.kk_moto'),
+      2 => I18n.t('product.category.kk_moto_others'),
       3 => I18n.t('product.category.wt_car'),
       4 => I18n.t('product.category.wt_car_others'),
       5 => I18n.t('product.category.cart_area'),

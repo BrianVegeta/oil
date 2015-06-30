@@ -11,8 +11,8 @@ zh-CN:
   product:
     applicable_type: '符合规格'
     category:
-      kk_motor: 'KK机车油'
-      kk_motor_others: 'KK机车油＆副产品'
+      kk_moto: 'KK机车油'
+      kk_moto_others: 'KK机车油＆副产品'
       wt_car: 'WT汽车油'
       wt_car_others: 'WT汽车油＆副产品'
       cart_area: '大车专区'
