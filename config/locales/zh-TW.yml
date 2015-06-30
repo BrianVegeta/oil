@@ -10,6 +10,13 @@ zh-TW:
     fb_link: 'www.facebook.com/shungchintrade'
   product:
     applicable_type: '符合規格'
+    category:
+      kk_motor: 'KK機車油'
+      kk_motor_others: 'KK機車油＆副產品'
+      wt_car: 'WT汽車油'
+      wt_car_others: 'WT汽車油＆副產品'
+      cart_area: '大車專區'
+      others: '其他代理產品'
   nav:
     header:
       name: '勝群'

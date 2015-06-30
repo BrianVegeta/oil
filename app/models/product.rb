@@ -1,12 +1,23 @@
 class Product  < ActiveRecord::Base
   CATEGORIES = {
-    1 => 'KK汽車油',
+    1 => 'KK機車油',
     2 => 'KK機車油＆副產品',
     3 => 'WT汽車油',
     4 => 'WT汽車油＆副產品',
     5 => '大車專區',
     6 => '其他代理產品'
   }
+
+  def self.cates
+    {
+      1 => I18n.t('product.category.kk_motor'),
+      2 => I18n.t('product.category.kk_motor_others'),
+      3 => I18n.t('product.category.wt_car'),
+      4 => I18n.t('product.category.wt_car_others'),
+      5 => I18n.t('product.category.cart_area'),
+      6 => I18n.t('product.category.others')
+    }
+  end
 
   serialize :zh_TW_applicables
   serialize :zh_CN_applicables
