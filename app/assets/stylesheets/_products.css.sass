@@ -13,19 +13,39 @@
       &.active:hover
         color: white
   .thumbnail
-    background-color: rgba(255, 255, 255, 0.75)
+    background-color: rgba(49, 69, 123, 0.4)
+    border-color: #A39C9C
     -webkit-transition: background 200ms ease-in 0
     -moz-transition: background 200ms ease-in 0
     -o-transition: background 200ms ease-in 0
     transition: background 200ms ease-in 0
+
+    .caption
+      & > h4
+        color: white
+
+        small
+          color: #D0CDCD
     a
       text-decoration: none
     &:hover
-      background-color: white
+      border-color: white
+      background-color: rgba(49, 69, 123, 0.75)
 
 #product
   .product-panel
-    background-color: rgba(255, 255, 255, 0.75)
+    margin-top: 10px
+    background-color: rgba(49, 69, 123, 0.50)
+    .caption
+      color: white
+
+      small
+        color: #D0CDCD
+
+    .product-cover
+      padding-top: 10px
+      padding-bottom: 10px
+
   .area-description, .area-applicable-type
     padding: 10px
     margin: 0 -10px 10px -10px
