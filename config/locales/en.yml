@@ -32,10 +32,10 @@ en:
   product:
     applicable_type: 'Applicable Types'
     category:
-      kk_moto: 'KK Motorcycle Lubricants'
+      kk_car: 'KK Lubricants for Cars'
       kk_moto_others: 'KK Motorcycle Lubricants & Related Products'
-      wt_car: 'WT Cars Lubricants '
-      wt_car_others: 'WT Cars Lubricants & Related Products'
+      wt_car: 'WT Lubricants for Cars'
+      wt_moto_others: 'WT Motorcycle Lubricants & Related Products'
       cart_area: 'Carts Area'
       others: 'Other Products'
   nav:

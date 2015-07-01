@@ -11,10 +11,10 @@ zh-TW:
   product:
     applicable_type: '符合規格'
     category:
-      kk_moto: 'KK機車油'
+      kk_car: 'KK汽車油'
       kk_moto_others: 'KK機車油＆副產品'
       wt_car: 'WT汽車油'
-      wt_car_others: 'WT汽車油＆副產品'
+      wt_moto_others: 'WT機車油＆副產品'
       cart_area: '大車專區'
       others: '其他代理產品'
   nav:
