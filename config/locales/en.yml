@@ -20,6 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  index:
+    introduction:
+      head: Company Profile
+      body_1: 'Shung-Chin Trade Corporation was approved by Ministry of Economic Affairs, R.O.C. at June 2012, as a professional trader on import of motor oil and lubricants. And we also as an agent of international brand, including Kuttenkeuler and self-own brand Winstank, etc. For high and pure quality, the manufacture and packing of products are proceeded at country of origin with strict quality control.'
+
+      body_2: 'Shunt-Chin Trade Corporation always follow the International Trade Custom, and stand for the principle of profession, quality service and keeping trustworthiness. We believe that, we will satisfy customers with our greatest service, enthusiasm and quality, to make a mutual relationship.'
+    product_service:
+      head: 'Products／Service'
+      body: 'Motor oil and lubricants marketing, trade marketing promotion, branding agency of KuttenKeuler and self-own brand Winstank, etc.'
   contact:
     phone: 886-8-7882137
     fax: 886-8-7802137
